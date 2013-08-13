@@ -68,12 +68,18 @@
         <artifactId>jetty-security</artifactId>
         <version>${jettyVersion}</version>
     </dependency>
-    
-    <dependency>
-	    <groupId>javax.ws.rs</groupId>
-      	<artifactId>javax.ws.rs-api</artifactId>
-      	<version>${jerseyVersion}</version>    	
-    </dependency>
+	
+	<dependency>
+		<groupId>com.sun.jersey</groupId>
+		<artifactId>jersey-bundle</artifactId>
+		<version>1.17.1</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>asm</groupId>
+		<artifactId>asm-all</artifactId>
+		<version>3.3.1</version>
+	</dependency>
 
     <dependency>
       	<groupId>org.codehaus.jackson</groupId>
