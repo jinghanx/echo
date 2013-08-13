@@ -14,10 +14,10 @@ public class WebContainer
 	public static void main(String[] args) throws Exception {
 		Server server = new Server(8080);
 		
-		// ServerConnector http = new ServerConnector(server);
-		// http.setPort(8080);
-		// http.setIdleTimeout(30000);
-		// server.setConnectors(new Connector[] { http });
+		ServerConnector http = new ServerConnector(server);
+		http.setPort(8080);
+		http.setIdleTimeout(30000);
+		server.setConnectors(new Connector[] { http });
 		
 		// create servlet handlers
         ServletHolder servletHolder = new ServletHolder(ServletContainer.class);
