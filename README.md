@@ -1,13 +1,11 @@
-This is echo project.
-
 Project Management: Maven
-JSON parser in server: gson
-Logging Services in server: log4j
+JSON parser: jackson
+Logging Services: log4j2
 Database: MySQL
-Database Admin:
-Java Compile Environment: Java 6
+Memory Cache: Redis
+Database Admin: MySQL workbench
+Java Compile Environment: Java 7
 Server Monitoring: JMX
 HTTP Request: Apache HttpComponents
-Web Services: RESTful
+Web Services: RESTful Jersey framework
 Web Server: Jetty
-JMS: Not dicided yet

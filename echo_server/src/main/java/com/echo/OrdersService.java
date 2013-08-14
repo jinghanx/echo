@@ -34,8 +34,7 @@ public class OrdersService
    public String find(@PathParam("order") String order)
    {
       if (orders.containsKey(order))
-         return "<h2>Details on Order #" + order + 
-                    "</h2><p>Customer name: " + orders.get(order);
+         return "<h2>Details on Order #" + order + "</h2><p>Customer name: " + orders.get(order);
 
       throw new WebApplicationException(Response.Status.NOT_FOUND);
    }
