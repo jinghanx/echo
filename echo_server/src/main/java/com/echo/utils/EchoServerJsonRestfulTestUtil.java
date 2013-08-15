@@ -6,13 +6,15 @@ import java.io.UnsupportedEncodingException;
 
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonGenerator;
+
+import com.echo.prototype.UserTemplate;
 
 public class EchoServerJsonRestfulTestUtil {
 	public static void main(String[] args) {
@@ -27,7 +29,7 @@ public class EchoServerJsonRestfulTestUtil {
 			g.writeStringField("first", "Joe");
 			g.writeStringField("last", "Sixpack");
 			g.writeEndObject();
-			g.writeStringField("gender", "male");
+			g.writeStringField("gender", UserTemplate.Gender.MALE.toString());
 			g.writeBooleanField("verified", false);
 			g.writeFieldName("userImage");
 			byte[] binaryData = new byte[100];
@@ -49,14 +51,14 @@ public class EchoServerJsonRestfulTestUtil {
 		System.out.println(requestJSON);
 		
 		HttpClient client = new DefaultHttpClient();
-		HttpPut put = new HttpPut("http://localhost:8080/users");
+		HttpPost post = new HttpPost("http://localhost:8080/users");
 		
 		StringEntity se;
 		try {
 			se = new StringEntity(requestJSON);
 			se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
-			put.setEntity(se);
-			client.execute(put);
+			post.setEntity(se);
+			client.execute(post);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {

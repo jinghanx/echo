@@ -1,4 +1,4 @@
-package com.echo;
+package com.echo.prototype;
 
 import java.io.IOException;
 import java.io.PrintWriter;

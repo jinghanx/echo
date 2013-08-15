@@ -1,4 +1,4 @@
-package com.echo;
+package com.echo.prototype;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,6 +11,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
+
+/*
+# Add a new order for Bob with ID 1
+curl -X PUT http://localhost:8080/orders/1?customer_name=bob 
+
+# Check the status of the order
+curl -X GET http://localhost:8080/orders/1 
+
+# See all the orders in the system
+curl -X GET http://localhost:8080/orders/list
+*/
 
 @Path("orders")
 public class OrdersService

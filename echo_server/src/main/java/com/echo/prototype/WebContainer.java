@@ -1,4 +1,4 @@
-package com.echo;
+package com.echo.prototype;
 
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
@@ -27,7 +27,9 @@ public class WebContainer
         
         servletHolder.setInitParameter("com.sun.jersey.config.property.resourceConfigClass", PackagesResourceConfig.class.getCanonicalName());
         // IMPORTANT: you have to specify the package where your resources are located in order for Jetty to pick them up
-        servletHolder.setInitParameter("com.sun.jersey.config.property.packages", "com.echo");
+        servletHolder.setInitParameter("com.sun.jersey.config.property.packages", "com.echo.prototype");
+        // support jackson POJO parsing
+        servletHolder.setInitParameter("com.sun.jersey.api.json.POJOMappingFeature", "true");
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
@@ -39,7 +41,7 @@ public class WebContainer
         handlers.setHandlers(new Handler[] { servletHandler,context });
         server.setHandler(handlers);
         
-        servletHandler.addServletWithMapping("com.echo.HelloWorldServlet", "/hello");
+        servletHandler.addServletWithMapping("com.echo.prototype.HelloWorldServlet", "/hello");
 		
 		server.start();
 		server.join();
