@@ -30,7 +30,8 @@ public class WebContainer
         servletHolder.setInitParameter("com.sun.jersey.config.property.packages", "com.echo.prototype");
         // support jackson POJO parsing
         servletHolder.setInitParameter("com.sun.jersey.api.json.POJOMappingFeature", "true");
-
+        servletHolder.setInitOrder(1);
+        
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         context.addServlet(servletHolder, "/*");
