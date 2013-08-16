@@ -16,6 +16,7 @@
     <jettyVersion>9.0.4.v20130625</jettyVersion>
     <jerseyVersion>2.0</jerseyVersion>
     <jacksonVersion>1.9.13</jacksonVersion>
+    <scalaVersion>2.10.2</scalaVersion>
   </properties>
 
   <dependencies>
@@ -115,6 +116,19 @@
 		<groupId>org.apache.httpcomponents</groupId>
 		<artifactId>httpclient</artifactId>
 		<version>4.2.5</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.scala-lang</groupId>
+		<artifactId>scala-library</artifactId>
+		<version>${scalaVersion}</version>
+	</dependency>
+ 
+ 	<!-- need to run mvn install:install-file -Dpackaging=jar -DgroupId=org.apache.kafka -DartifactId=kafka -Dversion=0.8.0 -Dfile=/media/sma/work/kafka_2.8.0-0.8.0-beta1_binary/kafka_2.8.0-0.8.0-beta1.jar -->
+ 	<dependency>
+  		<groupId>org.apache.kafka</groupId>
+  		<artifactId>kafka</artifactId>
+  		<version>0.8.0</version>
 	</dependency>
  
   </dependencies>
