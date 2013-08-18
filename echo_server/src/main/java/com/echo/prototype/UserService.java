@@ -1,5 +1,8 @@
 package com.echo.prototype;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.LinkedList;
 
 import javax.ws.rs.Consumes;
@@ -9,6 +12,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 @Path("/users")
 public class UserService {
@@ -24,6 +31,8 @@ public class UserService {
    }
 	   
     
+    /*	
+     * return usersList in text/html format example
     @Path("/list")
     @GET
     @Produces("text/html")
@@ -40,6 +49,28 @@ public class UserService {
     	System.out.println(result);
     	return result;
     }
-	   
+    */
+	
+    @Path("/list")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getUsersList() {
+    	final OutputStream out = new ByteArrayOutputStream();
+        final ObjectMapper mapper = new ObjectMapper();
 
+        try {
+			mapper.writeValue(out, usersList);
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    		
+        String usersListJSON = out.toString();
+        System.out.println(new String(usersListJSON));
+        
+    	return usersListJSON;
+    }
 }

@@ -16,6 +16,11 @@ import org.codehaus.jackson.JsonGenerator;
 
 import com.echo.prototype.UserTemplate;
 
+/**
+ * This util is used to generate UserTemplate POJO defined JSON
+ * @author sma
+ *
+ */
 public class EchoServerJsonRestfulTestUtil {
 	public static void main(String[] args) {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
