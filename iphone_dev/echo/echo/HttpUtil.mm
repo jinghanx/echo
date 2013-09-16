@@ -11,22 +11,23 @@
 
 @implementation HttpUtil
 
-+ (void) sendMessage:(Message *)message atLocation:(Location *)location from:(User *)userFrom to:(User *)userTo {
-    
++ (NSDictionary *) sendMessage:(Message *)message {
+    return [self requestUrl:@"http://192.168.1.89:8080/examples/echo" WithContent:[SerializeUtil serialize:message.content forKey:@"message"]];
 }
 
-+ (NSData *)pullUserDataFor:(NSString *)DeviceName {
-    [self requestUrl:@"http://localhost/getUserData" WithContent:DeviceName];
++ (NSDictionary *)pullUserFor:(NSString *)DeviceName {
+    return [self requestUrl:@"http://192.168.1.89:8080/examples/echo" WithContent:[SerializeUtil serialize:DeviceName forKey:@"deviceName"]];
 }
 
-+ (NSData *)requestUrl:(NSString *)url WithContent:(NSString *)content{
++ (NSDictionary *)requestUrl:(NSString *)url WithContent:(NSData *)content{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
     [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[content dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:content];
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-    return response;
+    NSDictionary *returnDic = [SerializeUtil  deSerialize:response];
+    return returnDic;
 }
 
 @end

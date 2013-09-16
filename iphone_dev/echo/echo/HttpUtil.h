@@ -13,8 +13,8 @@
 
 @interface HttpUtil : NSObject
 
-+ (void) sendMessage:(Message *)message atLocation:(Location *)location from:(User *)userFrom to:(User *)userTo;
++ (NSDictionary *) sendMessage:(Message *)message; 
++ (NSDictionary *)pullUserFor:(NSString *)DeviceName;
 
-+ (NSData *)pullUserDataFor:(NSString *)DeviceName;
 @end
 

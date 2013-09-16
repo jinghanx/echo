@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "Coordinate.h"
 
 @interface Location : NSObject
 
 + (Location *)instance;
-- (Coordinate *)getCoordinate;
+- (CLLocation *)getLocation;
+- (CLLocationCoordinate2D)getCoordinate;
 
 @end

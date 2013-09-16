@@ -1,23 +1,29 @@
 //
-//  echoAppDelegate.m
+//  EchoAppDelegate.m
 //  echo
 //
 //  Created by Jinghan Xu on 2/18/13.
 //  Copyright (c) 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "echoAppDelegate.h"
+#import "EchoAppDelegate.h"
+#import "FriendsViewController.h"
 
-@implementation echoAppDelegate
+@implementation EchoAppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    FriendsViewController *rootViewController = [[[FriendsViewController alloc] init] autorelease];
+    [self.window setRootViewController:rootViewController];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

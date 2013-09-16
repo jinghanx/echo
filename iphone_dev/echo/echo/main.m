@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "echoAppDelegate.h"
+#import "EchoAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([echoAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([EchoAppDelegate class]));
     }
 }

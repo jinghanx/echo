@@ -7,23 +7,13 @@
 //
 
 #import "User.h"
-#import "UserData.h"
-
-@interface User()
-@property (nonatomic, retain) UserData *userDataInstance;
-@end
+#import "HttpUtil.h"
+#import "SerializeUtil.h"
 
 @implementation User
-@synthesize userDataInstance;
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.userDataInstance = [[[UserData alloc] init] autorelease];
-        [self.userDataInstance getUserDataFromServer:[UIDevice currentDevice].name];
-    }
-    return self;
-}
-
+@synthesize userId;
+@synthesize name;
+@synthesize greeting;
+@synthesize friends;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  echoViewController.h
+//  EchoViewController.h
 //  echo
 //
 //  Created by Jinghan Xu on 2/18/13.
@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface echoViewController : UIViewController
+@interface EchoViewController : UIViewController
 @property (nonatomic, retain) IBOutlet UILabel *textLabel;
+@property (retain, nonatomic) IBOutlet MKMapView *mapView;
 
 @end

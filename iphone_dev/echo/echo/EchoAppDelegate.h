@@ -1,5 +1,5 @@
 //
-//  echoAppDelegate.h
+//  EchoAppDelegate.h
 //  echo
 //
 //  Created by Jinghan Xu on 2/18/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface echoAppDelegate : UIResponder <UIApplicationDelegate>
+@interface EchoAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

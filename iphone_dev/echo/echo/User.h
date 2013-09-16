@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface User : NSObject
+
+@property (nonatomic) int userId;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *greeting;
+@property (nonatomic, retain) NSArray *friends;
 
 @end

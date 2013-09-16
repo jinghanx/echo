@@ -10,5 +10,6 @@
 #import "User.h"
 
 @interface SerializeUtil : NSObject
-+ (NSString *) serializeUser:(id)instance;
++ (NSData *)serialize:(id)instance forKey:(NSString *)key;
++ (NSDictionary *)deSerialize:(NSData *)response;
 @end

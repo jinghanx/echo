@@ -8,7 +8,7 @@
 
 #import "Location.h"
 
-static Location *singletonInstance;
+static Location *singletonInstance = nil;
 
 @interface Location() <CLLocationManagerDelegate>
 @property (nonatomic,retain) CLLocationManager *locationManager;
@@ -33,8 +33,12 @@ static Location *singletonInstance;
     
 }
 
-- (Coordinate *)getCoordinate {
-    return [[Coordinate alloc] initWithLatitude:self.locationManager.location.coordinate.latitude andLongtitude:self.locationManager.location.coordinate.longitude];
+- (CLLocation *)getLocation {
+    return self.locationManager.location;
+}
+
+- (CLLocationCoordinate2D)getCoordinate {
+    return self.locationManager.location.coordinate;
 }
 
 @end

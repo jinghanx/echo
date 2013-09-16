@@ -9,5 +9,23 @@
 #import "Message.h"
 
 @implementation Message
+@synthesize  content;
+@synthesize sender;
+@synthesize receiver;
+@synthesize sendLocation;
+@synthesize receiveLocation;
+
+
+- (Message *)initWithContent:(NSString *)content_ {
+    self = [super init];
+    if (self) {
+        self.content = content_;
+        self.sender = nil;
+        self.receiver = nil;
+        self.sendLocation = nil;//[[Location instance] getLocation];
+        self.receiveLocation = nil;//[[Location instance] getLocation];
+    }
+    return self;
+}
 
 @end

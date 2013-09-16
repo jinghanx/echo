@@ -10,8 +10,17 @@
 
 @implementation SerializeUtil
 
-+ (NSString *) serializeUser:(id)instance {
-    return [instance description];
++ (NSData *)serialize:(id)instance forKey:(NSString *)key{
+    NSError *error;
+    return [NSJSONSerialization dataWithJSONObject:[NSDictionary dictionaryWithObject:instance forKey:key] options:NSJSONWritingPrettyPrinted error:&error];
 }
 
++ (NSDictionary *)deSerialize:(NSData *)response {
+    NSError *error;
+    if (response) {
+        NSDictionary *ret = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+        return ret;
+    }
+    return nil;
+}
 @end
